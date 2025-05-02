@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ nombre }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>{{ nombre }}</h1>
+            <img src="{{ imagen }}" alt="{{ nombre }}">
+            <em>"{{ frase }}"</em>
+            <p>ID del contenedor: <code>{{ contenedor_id }}</code></p>
+        </div>
+    </div>
+</body>
+</html>
