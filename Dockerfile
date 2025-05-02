@@ -1,16 +1,20 @@
 FROM python:3.8
 
-# Create app directory
 WORKDIR /usr/src/app
 
-# Copy the Flask app source to the working directory
 COPY . .
 
-# Install Flask
 RUN pip install -r requirements.txt
 
-# Expose the required port
 EXPOSE 8080
 
+# Opcional: solo si usas build args desde GitHub Actions
+ARG AWS_ACCESS_KEY_ID
+ARG AWS_SECRET_ACCESS_KEY
+ARG AWS_SESSION_TOKEN
+
+ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+ENV AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN
 
 CMD ["python", "app.py"]
